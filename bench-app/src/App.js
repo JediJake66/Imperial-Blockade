@@ -49,7 +49,7 @@ function moveRebel(e) {
     case " ":
       break;
     default:
-      resultsDisplay.innerHTML = "Use Left and Right Arrows to move";
+      resultsDisplay.innerHTML = "Use Left and Right Arrows to move and Space Bar to shoot";
   }
   squares[currentRebelIndex].classList.add("rebel");
 }
@@ -132,9 +132,8 @@ function shoot(e) {
   switch (e.key) {
     case " ":
       laserId = setInterval(moveLaser, 100);
-      break;      
+      break;
     default:
-      resultsDisplay.innerHTML = "Use Space Bar to shoot";
   }
 }
 

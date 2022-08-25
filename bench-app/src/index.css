@@ -5,31 +5,49 @@
   margin: auto;
   display: flex;
   flex-wrap: wrap;
+  background-image: url("./img/pexels-nicole-avagliano-2706654.jpg");
+  background-size:cover; 
+  background-repeat: no-repeat;
 }
 
 .grid div {
   width: 20px;
   height: 20px;
+  
+ 
 }
 
 .impShip {
-  background-color: purple;
+ 
   border-top-left-radius: 20px;
   border-top-right-radius: 20px;
   border-bottom-left-radius: 50px;
   border-bottom-right-radius: 50px;
+  background-image: url("./img/miniTrooper.jpg");
+  background-size: cover;
+  
  
 }
 
 .rebel {
-  background-color: #fa6900;
+  
+  background-image: url("./img/starWarsPoster\ \(3\).jpg");
+  background-size: cover;
 }
 
 .laser {
-  background-color: greenyellow;
+  
+  background-image: url("./img/frickinLaser\ \(2\).jpg");
+  background-size: cover;
 }
 
 .boom {
-  background-color: red;
-  border-radius: 50px;
+ 
+  background-image: url("./img/boom.jpg");
+  background-size: cover;
+}
+
+.results {
+  display: flex;
+  justify-content: center;
 }
