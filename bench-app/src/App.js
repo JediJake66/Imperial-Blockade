@@ -1,14 +1,14 @@
 const grid = document.querySelector(".grid");
 const resultsDisplay = document.querySelector(".results");
-let currentRebelIndex = 587;
-let width = 25;
+let currentRebelIndex = 370;
+let width = 20;
 let direction = 1;
 let intervalId;
 let goingRight = true;
 let blownShips = [];
 let results = 0;
 
-for (let i = 0; i < 625; i++) {
+for (let i = 0; i < 400; i++) {
   const square = document.createElement("div");
   grid.appendChild(square);
 }
@@ -16,8 +16,8 @@ for (let i = 0; i < 625; i++) {
 const squares = Array.from(document.querySelectorAll(".grid div"));
 
 const imperialFleet = [
-  0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 25, 26, 27, 28, 29, 30, 31, 32, 33, 34, 50, 51,
-  52, 53, 54, 55, 56, 57, 58, 59,
+  0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 40, 41,
+  42, 43, 44, 45, 46, 47, 48, 49,
 ];
 
 function placeImps() {

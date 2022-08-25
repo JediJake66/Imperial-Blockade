@@ -1,3 +1,8 @@
+body{
+  background-image: url("./img/alderaan.jpg");
+  background-size: cover;
+}
+
 .grid {
   width: 500px;
   height: 500px;
@@ -11,8 +16,8 @@
 }
 
 .grid div {
-  width: 20px;
-  height: 20px;
+  width: 25px;
+  height: 25px;
   
  
 }
@@ -32,7 +37,8 @@
 .rebel {
   
   background-image: url("./img/starWarsPoster\ \(3\).jpg");
-  background-size: cover;
+  background-size: contain;
+background-repeat: no-repeat;
 }
 
 .laser {
