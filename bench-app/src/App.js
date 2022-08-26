@@ -8,6 +8,8 @@ let goingRight = true;
 let blownShips = [];
 let results = 0;
 
+document.getElementById("startButton").addEventListener("click", startGame);
+
 for (let i = 0; i < 400; i++) {
   const square = document.createElement("div");
   grid.appendChild(square);
@@ -33,7 +35,7 @@ function removeImps() {
     squares[imperialFleet[i]].classList.remove("impShip");
   }
 }
-placeImps();
+// placeImps();
 
 squares[currentRebelIndex].classList.add("rebel");
 
@@ -46,61 +48,68 @@ function moveRebel(e) {
     case "ArrowRight":
       if (currentRebelIndex % width < width - 1) currentRebelIndex += 1;
       break;
-    case " ":
+    case "ArrowUp":
       break;
     default:
-      resultsDisplay.innerHTML = "Use Left and Right Arrows to move and Space Bar to shoot";
+      resultsDisplay.innerHTML =
+        "Use Left and Right Arrows to move and Up Arrow to shoot";
   }
   squares[currentRebelIndex].classList.add("rebel");
 }
 document.addEventListener("keydown", moveRebel);
 
-function moveImps() {
-  const leftEdge = imperialFleet[0] % width === 0;
-  const rightEdge =
-    imperialFleet[imperialFleet.length - 1] % width === width - 1;
-  removeImps();
 
-  if (rightEdge && goingRight) {
-    for (let i = 0; i < imperialFleet.length; i++) {
-      imperialFleet[i] += width + 1;
-      direction = -1;
-      goingRight = false;
+
+function startGame() {
+  function moveImps() {
+    const leftEdge = imperialFleet[0] % width === 0;
+    const rightEdge =
+      imperialFleet[imperialFleet.length - 1] % width === width - 1;
+    removeImps();
+
+    if (rightEdge && goingRight) {
+      for (let i = 0; i < imperialFleet.length; i++) {
+        imperialFleet[i] += width + 1;
+        direction = -1;
+        goingRight = false;
+      }
     }
-  }
 
-  if (leftEdge && !goingRight) {
-    for (let i = 0; i < imperialFleet.length; i++) {
-      imperialFleet[i] += width - 1;
-      direction = 1;
-      goingRight = true;
+    if (leftEdge && !goingRight) {
+      for (let i = 0; i < imperialFleet.length; i++) {
+        imperialFleet[i] += width - 1;
+        direction = 1;
+        goingRight = true;
+      }
     }
-  }
 
-  for (let i = 0; i < imperialFleet.length; i++) {
-    imperialFleet[i] += direction;
-  }
+    for (let i = 0; i < imperialFleet.length; i++) {
+      imperialFleet[i] += direction;
+    }
 
-  placeImps();
+    placeImps();
 
-  if (squares[currentRebelIndex].classList.contains("impShip", "rebel")) {
-    resultsDisplay.innerHTML = "GAME OVER";
-    clearInterval(intervalId);
-  }
-
-  for (let i = 0; i < imperialFleet.length; i++) {
-    if (imperialFleet[i] > squares.length) {
+    if (squares[currentRebelIndex].classList.contains("impShip", "rebel")) {
       resultsDisplay.innerHTML = "GAME OVER";
       clearInterval(intervalId);
     }
+
+    for (let i = 0; i < imperialFleet.length; i++) {
+      if (imperialFleet[i] > squares.length) {
+        resultsDisplay.innerHTML = "GAME OVER";
+        clearInterval(intervalId);
+      }
+    }
+    if (blownShips.length === imperialFleet.length) {
+      resultsDisplay.innerHTML = "YOU WIN";
+      clearInterval(intervalId);
+    }
   }
-  if (blownShips.length === imperialFleet.length) {
-    resultsDisplay.innerHTML = "YOU WIN";
-    clearInterval(intervalId);
-  }
+  intervalId = setInterval(moveImps, 300);
 }
 
-intervalId = setInterval(moveImps, 300);
+
+
 
 function shoot(e) {
   let laserId;
@@ -130,7 +139,7 @@ function shoot(e) {
   }
 
   switch (e.key) {
-    case " ":
+    case "ArrowUp":
       laserId = setInterval(moveLaser, 100);
       break;
     default:
@@ -138,3 +147,4 @@ function shoot(e) {
 }
 
 document.addEventListener("keydown", shoot);
+

@@ -53,7 +53,14 @@ background-repeat: no-repeat;
   background-size: cover;
 }
 
-.results {
+
+header {
   display: flex;
-  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+input {
+  margin: 5px;
+  background-color: aqua;
 }
