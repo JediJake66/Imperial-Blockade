@@ -1,3 +1,5 @@
+const { default: axios } = require("axios");
+
 const grid = document.querySelector(".grid");
 const resultsDisplay = document.querySelector(".results");
 let currentRebelIndex = 370;
@@ -9,6 +11,15 @@ let blownShips = [];
 let results = 0;
 
 document.getElementById("startButton").addEventListener("click", startGame);
+// document.getElementById("profile").addEventListener("click", getScores);
+
+
+// function getScores () {
+//     const server = `http://localhost:8080/`
+//      axios.get(`${server}high-scores`)
+//      .then(res => console.log(res))
+//      .catch(error => console.log("Error: ", error))
+//   };
 
 for (let i = 0; i < 400; i++) {
   const square = document.createElement("div");
@@ -35,7 +46,6 @@ function removeImps() {
     squares[imperialFleet[i]].classList.remove("impShip");
   }
 }
-// placeImps();
 
 squares[currentRebelIndex].classList.add("rebel");
 
@@ -57,8 +67,6 @@ function moveRebel(e) {
   squares[currentRebelIndex].classList.add("rebel");
 }
 document.addEventListener("keydown", moveRebel);
-
-
 
 function startGame() {
   function moveImps() {
@@ -108,9 +116,6 @@ function startGame() {
   intervalId = setInterval(moveImps, 300);
 }
 
-
-
-
 function shoot(e) {
   let laserId;
   let currentLaserIndex = currentRebelIndex;
@@ -146,5 +151,4 @@ function shoot(e) {
   }
 }
 
-document.addEventListener("keydown", shoot);
-
+document.addEventListener("keydown", shoot)
