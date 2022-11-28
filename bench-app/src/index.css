@@ -1,4 +1,4 @@
-body{
+body {
   background-image: url("./img/alderaan.jpg");
   background-size: cover;
 }
@@ -11,56 +11,49 @@ body{
   display: flex;
   flex-wrap: wrap;
   background-image: url("./img/pexels-nicole-avagliano-2706654.jpg");
-  background-size:cover; 
+  background-size: cover;
   background-repeat: no-repeat;
 }
 
 .grid div {
   width: 25px;
   height: 25px;
-  
- 
 }
 
 .impShip {
- 
   border-top-left-radius: 20px;
   border-top-right-radius: 20px;
   border-bottom-left-radius: 50px;
   border-bottom-right-radius: 50px;
   background-image: url("./img/miniTrooper.jpg");
   background-size: cover;
-  
- 
 }
 
 .rebel {
-  
   background-image: url("./img/starWarsPoster\ \(3\).jpg");
   background-size: contain;
-background-repeat: no-repeat;
+  background-repeat: no-repeat;
 }
 
 .laser {
-  
   background-image: url("./img/frickinLaser\ \(2\).jpg");
   background-size: cover;
 }
 
 .boom {
- 
   background-image: url("./img/boom.jpg");
   background-size: cover;
 }
-
 
 header {
   display: flex;
   align-items: center;
   flex-direction: column;
+  color: red;
 }
+
 
 input {
   margin: 5px;
-  background-color: aqua;
+  background-color: black;
 }
